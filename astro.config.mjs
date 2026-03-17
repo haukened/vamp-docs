@@ -7,6 +7,15 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'VAMP',
+			logo: {
+				light: './src/assets/logo-full-light.svg',
+				dark: './src/assets/logo-full-dark.svg',
+				replacesTitle: true,
+			},
+			customCss: ['./src/styles/site.css'],
+			components: {
+				Footer: './src/components/Footer.astro',
+			},
 			sidebar: [
 				{
 					label: 'Research',
