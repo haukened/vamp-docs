@@ -14,6 +14,8 @@
 
 :root:has(.vamp-home) {
 	--sl-content-width: 74rem;
+	--vamp-hero-border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 72%, transparent);
+	--vamp-hero-shadow: var(--sl-shadow-md);
 }
 
 :root:has(.vamp-home) .hero {
@@ -22,7 +24,7 @@
 	gap: clamp(2rem, 4vw, 4rem);
 	padding: clamp(2rem, 4vw, 3.75rem);
 	margin-top: 1rem;
-	border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 72%, transparent);
+	border: var(--vamp-hero-border);
 	border-radius: 2rem;
 	background:
 		radial-gradient(circle at top right, color-mix(in srgb, var(--sl-color-accent) 18%, transparent) 0, transparent 38%),
@@ -196,7 +198,8 @@
 	padding: 1.2rem;
 	border-radius: 1.25rem;
 	background: color-mix(in srgb, var(--sl-color-bg-nav) 88%, transparent);
-	border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 78%, transparent);
+	border: var(--vamp-hero-border);
+	box-shadow: var(--vamp-hero-shadow);
 }
 
 .vamp-problem-item strong,
@@ -224,9 +227,10 @@
 .vamp-key-point {
 	margin: 0;
 	padding: 0.9rem 1rem;
-	border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 76%, transparent);
+	border: var(--vamp-hero-border);
 	border-radius: 999px;
 	background: color-mix(in srgb, var(--sl-color-bg-nav) 78%, transparent);
+	box-shadow: var(--vamp-hero-shadow);
 	color: var(--sl-color-gray-2);
 	line-height: 1.5;
 }
@@ -277,13 +281,13 @@
 }
 
 .vamp-panel {
-	border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 82%, transparent);
+	border: var(--vamp-hero-border);
 	border-radius: 1.5rem;
 	background:
 		linear-gradient(180deg,
 			color-mix(in srgb, var(--sl-color-bg-nav) 86%, transparent),
 			color-mix(in srgb, var(--sl-color-bg) 96%, transparent));
-	box-shadow: var(--sl-shadow-sm);
+	box-shadow: var(--vamp-hero-shadow);
 }
 
 .vamp-principle {
@@ -327,15 +331,13 @@
 	display: grid;
 	gap: 0.9rem;
 	padding: 1rem;
-	border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 76%, transparent);
+	border: var(--vamp-hero-border);
 	border-radius: 1.05rem;
 	background:
 		linear-gradient(180deg,
 			color-mix(in srgb, var(--sl-color-black) 42%, transparent),
 			color-mix(in srgb, var(--sl-color-bg-nav) 92%, transparent));
-	box-shadow:
-		inset 0 1px 0 color-mix(in srgb, var(--sl-color-white) 6%, transparent),
-		0 0.75rem 1.75rem color-mix(in srgb, var(--sl-color-black) 14%, transparent);
+	box-shadow: var(--vamp-hero-shadow);
 }
 
 .vamp-mail-top {
@@ -670,7 +672,8 @@
 	padding: 1.2rem;
 	border-radius: 1.25rem;
 	background: color-mix(in srgb, var(--sl-color-bg-nav) 88%, transparent);
-	border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 78%, transparent);
+	border: var(--vamp-hero-border);
+	box-shadow: var(--vamp-hero-shadow);
 }
 
 .vamp-stat strong {
@@ -714,8 +717,8 @@
 .vamp-doc:hover,
 .vamp-doc:focus-visible {
 	transform: translateY(-0.2rem);
-	border-color: color-mix(in srgb, var(--sl-color-accent) 35%, var(--sl-color-hairline-light));
-	box-shadow: var(--sl-shadow-md);
+	border: var(--vamp-hero-border);
+	box-shadow: var(--vamp-hero-shadow);
 }
 
 .vamp-doc:focus-visible {
