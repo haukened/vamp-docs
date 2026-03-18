@@ -1,0 +1,19 @@
+---
+const enableAnalytics = import.meta.env.PROD;
+const scriptSrc = "https://cloud.umami.is/script.js";
+const websiteId = "48932b5d-0254-4e2b-b876-a92c95c1e774";
+
+// Umami.is is a privacy-focused analytics tool that does not use cookies and does not track personal data.
+// It provides insights into website traffic and user behavior while respecting user privacy.
+// I'm not collecting any personal data, and the analytics are used solely to understand how visitors interact with the documentation site to improve it.
+---
+
+{
+  enableAnalytics ? (
+    <script defer src={scriptSrc} data-website-id={websiteId} />
+  ) : (
+    <div id="no-track" hidden="true">
+      Tracker Disabled in Dev Mode
+    </div>
+  )
+}
