@@ -1,0 +1,51 @@
+---
+title: Not Found
+description: "The page you requested doesn't exist or has moved."
+template: splash
+tableOfContents: false
+editUrl: false
+hero:
+  title: '<span class="vamp-kicker">VAMP routing error</span>404: Signal lost<br />'
+  tagline: The page you requested is missing, moved, or no longer published. Start from the homepage, continue into the research library, or jump back to a core proposal section.
+  image:
+    light: ../../assets/logo-light.svg
+    dark: ../../assets/logo-dark.svg
+    alt: VAMP logo
+  actions:
+    - text: Return Home
+      link: /
+      icon: right-arrow
+    - text: Browse Research
+      link: /research/spam-costs-and-volumes/
+      variant: secondary
+---
+
+<div class="not-content vamp-404">
+	<section class="vamp-panel vamp-404-panel" aria-labelledby="vamp-404-panel-heading">
+		<div class="vamp-404-copy">
+			<p class="vamp-label">Recovery Paths</p>
+			<h2 id="vamp-404-panel-heading">The protocol is intact. Only this route failed.</h2>
+			<p>
+				If you followed an outdated link, the material may now live elsewhere in the research section.
+				Use the entry points here to get back to the main docs flow quickly.
+			</p>
+		</div>
+		<div class="vamp-404-grid">
+			<a class="vamp-doc vamp-panel" href="/">
+				<p class="vamp-doc-label">Primary Route</p>
+				<h3>Homepage</h3>
+				<p>Return to the main VAMP overview and use the splash entry points to navigate from there.</p>
+			</a>
+			<a class="vamp-doc vamp-panel" href="/research/spam-costs-and-volumes/">
+				<p class="vamp-doc-label">Research</p>
+				<h3>Start Reading</h3>
+				<p>Open the research library from the first published section and continue through the proposal.</p>
+			</a>
+			<a class="vamp-doc vamp-panel" href="/research/native-transport-topology/">
+				<p class="vamp-doc-label">Core Proposal</p>
+				<h3>Explore Topology</h3>
+				<p>Jump directly into the transport and architecture work if that was your intended destination.</p>
+			</a>
+		</div>
+	</section>
+</div>

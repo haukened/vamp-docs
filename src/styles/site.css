@@ -12,13 +12,15 @@
 	--sl-color-accent-low: hsl(191, 76%, 92%);
 }
 
-:root:has(.vamp-home) {
+:root:has(.vamp-home),
+:root:has(.vamp-404) {
 	--sl-content-width: 74rem;
 	--vamp-hero-border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 72%, transparent);
 	--vamp-hero-shadow: var(--sl-shadow-md);
 }
 
-:root:has(.vamp-home) .hero {
+:root:has(.vamp-home) .hero,
+:root:has(.vamp-404) .hero {
 	position: relative;
 	isolation: isolate;
 	gap: clamp(2rem, 4vw, 4rem);
@@ -35,7 +37,8 @@
 	overflow: hidden;
 }
 
-:root:has(.vamp-home) .hero::before {
+:root:has(.vamp-home) .hero::before,
+:root:has(.vamp-404) .hero::before {
 	content: '';
 	position: absolute;
 	inset: 0;
@@ -55,20 +58,25 @@
 }
 
 :root:has(.vamp-home) .hero .stack,
-:root:has(.vamp-home) .hero>img {
+:root:has(.vamp-home) .hero>img,
+:root:has(.vamp-404) .hero .stack,
+:root:has(.vamp-404) .hero>img {
 	position: relative;
 	z-index: 1;
 }
 
-:root:has(.vamp-home) .hero .stack {
+:root:has(.vamp-home) .hero .stack,
+:root:has(.vamp-404) .hero .stack {
 	gap: 1.5rem;
 }
 
-:root:has(.vamp-home) .hero .copy {
+:root:has(.vamp-home) .hero .copy,
+:root:has(.vamp-404) .hero .copy {
 	gap: 1.25rem;
 }
 
-:root:has(.vamp-home) .hero>img {
+:root:has(.vamp-home) .hero>img,
+:root:has(.vamp-404) .hero>img {
 	width: min(100%, 17.5rem);
 	padding: clamp(1.5rem, 4vw, 2.5rem);
 	border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 78%, transparent);
@@ -81,14 +89,16 @@
 		inset 0 1px 0 color-mix(in srgb, var(--sl-color-white) 10%, transparent);
 }
 
-:root:has(.vamp-home) .hero h1 {
+:root:has(.vamp-home) .hero h1,
+:root:has(.vamp-404) .hero h1 {
 	max-width: 14ch;
 	font-size: clamp(3rem, 7vw, 5.8rem);
 	line-height: 0.96;
 	letter-spacing: -0.04em;
 }
 
-:root:has(.vamp-home) .hero h1 .vamp-kicker {
+:root:has(.vamp-home) .hero h1 .vamp-kicker,
+:root:has(.vamp-404) .hero h1 .vamp-kicker {
 	display: block;
 	margin-bottom: 1rem;
 	font-size: 0.8rem;
@@ -99,22 +109,26 @@
 	color: var(--sl-color-text-accent);
 }
 
-:root:has(.vamp-home) .hero h1>span:not(.vamp-kicker) {
+:root:has(.vamp-home) .hero h1>span:not(.vamp-kicker),
+:root:has(.vamp-404) .hero h1>span:not(.vamp-kicker) {
 	color: var(--sl-color-gray-2);
 }
 
-:root:has(.vamp-home) .hero .tagline {
+:root:has(.vamp-home) .hero .tagline,
+:root:has(.vamp-404) .hero .tagline {
 	max-width: 38rem;
 	font-size: clamp(1rem, 1.2vw + 0.85rem, 1.35rem);
 	line-height: 1.6;
 	color: var(--sl-color-gray-2);
 }
 
-:root:has(.vamp-home) .hero .actions {
+:root:has(.vamp-home) .hero .actions,
+:root:has(.vamp-404) .hero .actions {
 	gap: 0.85rem;
 }
 
-:root:has(.vamp-home) .hero .actions a {
+:root:has(.vamp-home) .hero .actions a,
+:root:has(.vamp-404) .hero .actions a {
 	min-height: 3rem;
 	padding-inline: 1.2rem;
 	border-radius: 999px;
@@ -125,6 +139,45 @@
 	display: grid;
 	gap: clamp(3.5rem, 7vw, 6rem);
 	padding: 1rem 0 4rem;
+}
+
+.vamp-404 {
+	display: grid;
+	padding: 1rem 0 4rem;
+}
+
+.vamp-404-panel {
+	display: grid;
+	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+	gap: 1.5rem;
+	padding: clamp(1.5rem, 2vw, 2rem);
+}
+
+.vamp-404-copy {
+	display: grid;
+	gap: 1rem;
+	align-content: start;
+}
+
+.vamp-404-copy h2 {
+	margin: 0;
+	font-size: clamp(2rem, 1.8vw + 1.4rem, 3.15rem);
+	line-height: 1.05;
+	letter-spacing: -0.03em;
+	color: var(--sl-color-white);
+}
+
+.vamp-404-copy p:last-child {
+	margin: 0;
+	font-size: 1.05rem;
+	line-height: 1.7;
+	color: var(--sl-color-gray-3);
+}
+
+.vamp-404-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
 }
 
 .vamp-problem,
@@ -736,6 +789,8 @@
 
 	.vamp-problem,
 	.vamp-architecture,
+	.vamp-404-panel,
+	.vamp-404-grid,
 	.vamp-principles-grid,
 	.vamp-reading-grid,
 	.vamp-why,
@@ -746,16 +801,19 @@
 }
 
 @media (max-width: 50rem) {
-	:root:has(.vamp-home) .hero {
+	:root:has(.vamp-home) .hero,
+	:root:has(.vamp-404) .hero {
 		padding: 1.5rem;
 		border-radius: 1.5rem;
 	}
 
-	:root:has(.vamp-home) .hero h1 {
+	:root:has(.vamp-home) .hero h1,
+	:root:has(.vamp-404) .hero h1 {
 		max-width: 15ch;
 	}
 
-	:root:has(.vamp-home) .hero>img {
+	:root:has(.vamp-home) .hero>img,
+	:root:has(.vamp-404) .hero>img {
 		width: min(65vw, 15rem);
 	}
 
@@ -763,8 +821,13 @@
 		padding-bottom: 3rem;
 	}
 
+	.vamp-404 {
+		padding-bottom: 3rem;
+	}
+
 	.vamp-section-head h2,
 	.vamp-note h2,
+	.vamp-404-copy h2,
 	.vamp-problem-copy h2,
 	.vamp-architecture-copy h2 {
 		font-size: 2rem;
