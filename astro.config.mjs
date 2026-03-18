@@ -16,6 +16,16 @@ export default defineConfig({
 			components: {
 				Footer: './src/components/Footer.astro',
 			},
+			head: [
+				{
+					tag: 'script',
+					attrs: {
+						src: 'https://cloud.umami.is/script.js',
+						'data-website-id': '48932b5d-0254-4e2b-b876-a92c95c1e774',
+						defer: true,
+					}
+				},
+			],
 			sidebar: [
 				{
 					label: 'Research',
