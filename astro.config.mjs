@@ -18,6 +18,11 @@ export default defineConfig({
 			},
 			sidebar: [
 				{
+					label: 'Technical Narrative',
+					autogenerate: { directory: 'technical' },
+					collapsed: false,
+				},
+				{
 					label: 'Research',
 					autogenerate: { directory: 'research' },
 				},
