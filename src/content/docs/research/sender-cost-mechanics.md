@@ -1,5 +1,8 @@
 ---
 title: MTA-scoped, non-monetary sender-cost mechanics for VAMP
+description: A focused analysis of what must be true in the real world for VAMP to materially reduce email abuse
+sidebar:
+  order: 4
 ---
 
 A focused analysis of what must be true in the real world for VAMP to materially reduce email abuse
@@ -208,7 +211,7 @@ To make the system work in the real world, VAMP needs more than a generic notion
 
 That bundle is what turns sender-side burden from a slogan into an operational anti-abuse system. The evidence from Google, Microsoft, Outlook.com postmaster tooling, classic anti-spam research, and modern incident cases suggests that these mechanics are not only plausible — they are already partially deployed across the existing ecosystem. VAMP’s opportunity is to recombine them into a cleaner, identity-first architecture instead of leaving them as scattered compensating controls.
 
-## Footnotes
+## Citations
 
 [^1]: Microsoft, Microsoft Digital Defense Report 2025, sections on identity attacks and BEC. It states that identity-based attacks rose 32% in the first half of 2025 and that BEC represented 2% of total threats observed but 21% of attack outcomes; it also describes BEC as typically initiated through identity compromise and then expanded through inbox rules, thread hijacking, SharePoint abuse, and MFA tampering.  ￼
 

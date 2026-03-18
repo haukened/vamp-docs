@@ -1,8 +1,11 @@
 ---
 title: Email volume baselines for VAMP threshold design
+description: How many emails do human send, how do bulk senders behave, how do attackers scale, and where should VAMP thresholds start?
+sidebar:
+  order: 2
 ---
 
-## How many emails a human sends, how bulk senders behave, how attackers scale, and where initial thresholds should start
+#### How many emails a human sends, how bulk senders behave, how attackers scale, and where initial thresholds should start
 
 ## Executive summary
 

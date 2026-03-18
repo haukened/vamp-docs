@@ -1,6 +1,8 @@
 ---
 title: The 2026 Cost and Operational Burden of Spam on Email Operators
-description: A market-research brief on the scale, professionalization, and costs of spam in 2026.
+description: A market-research brief on the scale, professionalization, and costs of spam in 2026
+sidebar:
+  order: 1
 ---
 
 ## Executive summary

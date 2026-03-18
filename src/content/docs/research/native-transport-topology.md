@@ -1,8 +1,9 @@
 ---
-title: VAMP Native Transport Topology  
+title: VAMP Native Transport Topology
+description: How should VAMP define the normal transport topology for native delivery, and what are the security implications of that choice?
+sidebar:
+  order: 3
 ---
-
-Sender-edge to receiver-edge delivery with no third-party transit relay in the normal path
 
 ## Executive summary
 
@@ -263,7 +264,7 @@ So the topology should be adopted as the **default native transport rule**:
 
 Everything else — mailing lists, forwarders, archival hops, bulk-sender services, migration bridges, SMTP fallback — should be modeled as **explicit alternate roles**, not as transparent transport. That is the cleanest way to preserve accountability, make sender-incurred cost meaningful, and keep the normal path narrow enough to secure.
 
-## Footnotes
+## Citations
 
 [^1]: RFC 5598, *Internet Mail Architecture*. RFC 5598 describes Internet Mail as an **asynchronous sequence of point-to-point transfer mechanisms**, says there is **no requirement for authors/originators/recipients to be online at the same time**, states that SMTP is used primarily for **point-to-point transfers between peer MTAs**, and says SMTP supports reliability through **retransmission after temporary transfer failure** while MTAs are expected to store messages durably enough to recover across service interruptions. https://www.rfc-editor.org/rfc/rfc5598
 

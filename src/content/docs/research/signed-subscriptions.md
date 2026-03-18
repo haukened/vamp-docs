@@ -1,5 +1,8 @@
 ---
 title: WebAuthn-Style Subscription Authorization for VAMP
+description: A research paper on how VAMP can use a WebAuthn-style device authorization model to create cryptographically verifiable subscription consent for mailing lists and bulk mail
+sidebar:
+  order: 7
 ---
 
 ## 1. Executive Summary
@@ -266,7 +269,7 @@ A WebAuthn-style device authorization model is the strongest known pattern for f
 
 The key design move is to treat subscriptions not as email headers or sender-local database rows, but as **cryptographically signed consent assertions** that integrate into VAMP’s broader identity and custody architecture. That makes mailing lists and bulk mail a natural extension of the same protocol rather than a loophole around it. The result is a system where bulk distribution can remain usable, but only when recipient consent is provable.
 
-## Footnotes
+## Citations
 
 [^1]: W3C, Web Authentication: An API for accessing Public Key Credentials Level 3. The specification defines scoped public-key credentials, says authenticators are responsible for ensuring no operation is performed without user consent, and says the user agent mediates access to authenticators and their public key credentials to preserve user privacy. https://www.w3.org/TR/webauthn-3/
 

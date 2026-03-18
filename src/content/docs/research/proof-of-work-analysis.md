@@ -1,6 +1,8 @@
 ---
 title: Proof-of-Work Families for VAMP  
 description: A technical deep dive on sender-cost models for MTA-executed anti-abuse controls
+sidebar:
+  order: 5
 ---
 
 ## Executive summary
@@ -393,7 +395,7 @@ Among currently published families, that points most strongly to an **asymmetric
 
 The literature also supports the caution that must accompany that recommendation: **proof-of-work should be one layer in a hybrid, reputation-aware anti-abuse system, not a universal tax on all mail**.[^11][^12] In the VAMP setting, that further implies that the proof mechanism should remain **protocol-native and automatic**. A design that depends on user- or admin-driven escalation is a poor fit for store-and-forward messaging, even if interactive puzzle research remains useful as background theory.[^13][^16]
 
-## Footnotes
+## Citations
 
 [^1]: Alex Biryukov and Dmitry Khovratovich, **“Equihash: Asymmetric Proof-of-Work Based on the Generalized Birthday Problem”**, NDSS 2016 / Ledger. The paper explicitly presents Equihash as an asymmetric, memory-hard PoW with instant verification, algorithm binding to prevent amortization, steep time-space tradeoffs, and a 120-byte proof in the reference implementation.  
     https://www.ndss-symposium.org/wp-content/uploads/2017/09/equihash-asymmetric-proof-of-work-based-generalized-birthday-problem.pdf

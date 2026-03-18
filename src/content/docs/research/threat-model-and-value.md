@@ -1,6 +1,8 @@
 ---
 title: Sender-Cost Enforcement, Downgrade Resistance, and Operator Value
 description: A threat-model and deployment analysis for VAMP
+sidebar:
+  order: 6
 ---
 
 ## Executive summary
@@ -190,7 +192,7 @@ The evidence supports the central VAMP thesis: sender-side marginal cost is a vi
 
 The key limitation should be stated plainly: sender cost alone will not stop compromised trusted identities or surgical BEC. For those, VAMP must rely on revocation, device-bound identity, anomaly detection, and explicit downgrade-resistant policy. But that limitation is not a weakness of the argument; it is what makes the argument rigorous. The correct claim is not “cost solves email.” The correct claim is that cost solves scale, identity solves impersonation, and downgrade resistance prevents the old protocol from becoming the cheap bypass around the new one. [^8][^13][^14][^17]  ￼
 
-## 7. Footnotes
+## 7. Citations
 
 [^1]: Google, “New Gmail protections for a safer, less spammy inbox,” October 3, 2023.
 [^2]: Google Workspace Admin Help, “Email sender guidelines FAQ,” current as accessed March 2026.
