@@ -1,0 +1,773 @@
+:root,
+::backdrop {
+	--sl-color-accent-low: hsl(192, 42%, 18%);
+	--sl-color-accent: hsl(192, 92%, 62%);
+	--sl-color-accent-high: hsl(188, 88%, 84%);
+}
+
+:root[data-theme='light'],
+[data-theme='light'] ::backdrop {
+	--sl-color-accent-high: hsl(194, 78%, 26%);
+	--sl-color-accent: hsl(194, 96%, 42%);
+	--sl-color-accent-low: hsl(191, 76%, 92%);
+}
+
+:root:has(.vamp-home) {
+	--sl-content-width: 74rem;
+}
+
+:root:has(.vamp-home) .hero {
+	position: relative;
+	isolation: isolate;
+	gap: clamp(2rem, 4vw, 4rem);
+	padding: clamp(2rem, 4vw, 3.75rem);
+	margin-top: 1rem;
+	border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 72%, transparent);
+	border-radius: 2rem;
+	background:
+		radial-gradient(circle at top right, color-mix(in srgb, var(--sl-color-accent) 18%, transparent) 0, transparent 38%),
+		linear-gradient(180deg,
+			color-mix(in srgb, var(--sl-color-bg-nav) 82%, transparent),
+			color-mix(in srgb, var(--sl-color-bg) 94%, transparent));
+	box-shadow: var(--sl-shadow-md);
+	overflow: hidden;
+}
+
+:root:has(.vamp-home) .hero::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background-image:
+		linear-gradient(90deg,
+			transparent 0,
+			transparent calc(100% - 1px),
+			color-mix(in srgb, var(--sl-color-hairline-light) 40%, transparent) calc(100% - 1px)),
+		linear-gradient(180deg,
+			transparent 0,
+			transparent calc(100% - 1px),
+			color-mix(in srgb, var(--sl-color-hairline-light) 22%, transparent) calc(100% - 1px));
+	background-size: 5.5rem 5.5rem;
+	mask-image: linear-gradient(180deg, black, transparent 85%);
+	opacity: 0.55;
+	pointer-events: none;
+}
+
+:root:has(.vamp-home) .hero .stack,
+:root:has(.vamp-home) .hero>img {
+	position: relative;
+	z-index: 1;
+}
+
+:root:has(.vamp-home) .hero .stack {
+	gap: 1.5rem;
+}
+
+:root:has(.vamp-home) .hero .copy {
+	gap: 1.25rem;
+}
+
+:root:has(.vamp-home) .hero>img {
+	width: min(100%, 17.5rem);
+	padding: clamp(1.5rem, 4vw, 2.5rem);
+	border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 78%, transparent);
+	border-radius: 2rem;
+	background:
+		radial-gradient(circle at 50% 20%, color-mix(in srgb, var(--sl-color-accent) 20%, transparent), transparent 60%),
+		color-mix(in srgb, var(--sl-color-bg-nav) 86%, transparent);
+	box-shadow:
+		0 1.5rem 3rem color-mix(in srgb, var(--sl-color-black) 20%, transparent),
+		inset 0 1px 0 color-mix(in srgb, var(--sl-color-white) 10%, transparent);
+}
+
+:root:has(.vamp-home) .hero h1 {
+	max-width: 14ch;
+	font-size: clamp(3rem, 7vw, 5.8rem);
+	line-height: 0.96;
+	letter-spacing: -0.04em;
+}
+
+:root:has(.vamp-home) .hero h1 .vamp-kicker {
+	display: block;
+	margin-bottom: 1rem;
+	font-size: 0.8rem;
+	font-weight: 600;
+	line-height: 1.2;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--sl-color-text-accent);
+}
+
+:root:has(.vamp-home) .hero h1>span:not(.vamp-kicker) {
+	color: var(--sl-color-gray-2);
+}
+
+:root:has(.vamp-home) .hero .tagline {
+	max-width: 38rem;
+	font-size: clamp(1rem, 1.2vw + 0.85rem, 1.35rem);
+	line-height: 1.6;
+	color: var(--sl-color-gray-2);
+}
+
+:root:has(.vamp-home) .hero .actions {
+	gap: 0.85rem;
+}
+
+:root:has(.vamp-home) .hero .actions a {
+	min-height: 3rem;
+	padding-inline: 1.2rem;
+	border-radius: 999px;
+	backdrop-filter: blur(12px);
+}
+
+.vamp-home {
+	display: grid;
+	gap: clamp(3.5rem, 7vw, 6rem);
+	padding: 1rem 0 4rem;
+}
+
+.vamp-problem,
+.vamp-architecture {
+	display: grid;
+	grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+	gap: 1.5rem;
+	padding: clamp(1.5rem, 2vw, 2rem);
+}
+
+.vamp-custody {
+	padding: clamp(1.5rem, 2vw, 2rem);
+}
+
+.vamp-show-off {
+	padding: clamp(1.5rem, 2vw, 2rem);
+}
+
+.vamp-problem-copy,
+.vamp-architecture-copy {
+	display: grid;
+	gap: 1rem;
+	align-content: start;
+}
+
+.vamp-problem-copy h2,
+.vamp-architecture-copy h2 {
+	margin: 0;
+	font-size: clamp(2rem, 1.8vw + 1.4rem, 3.15rem);
+	line-height: 1.05;
+	letter-spacing: -0.03em;
+	color: var(--sl-color-white);
+}
+
+.vamp-problem-copy p,
+.vamp-architecture-copy>p {
+	margin: 0;
+	font-size: 1.05rem;
+	line-height: 1.7;
+	color: var(--sl-color-gray-3);
+}
+
+.vamp-problem-copy ul {
+	margin: 0;
+	padding-inline-start: 1.25rem;
+	font-size: 1.05rem;
+	line-height: 1.7;
+	color: var(--sl-color-gray-3);
+}
+
+.vamp-problem-copy li {
+	color: inherit;
+}
+
+.vamp-problem-copy li+li {
+	margin-top: 0.45rem;
+}
+
+.vamp-problem-list,
+.vamp-chain,
+.vamp-custody-grid {
+	display: grid;
+	gap: 1rem;
+}
+
+.vamp-problem-item,
+.vamp-chain-step,
+.vamp-mini-flow {
+	display: grid;
+	gap: 0.55rem;
+	padding: 1.2rem;
+	border-radius: 1.25rem;
+	background: color-mix(in srgb, var(--sl-color-bg-nav) 88%, transparent);
+	border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 78%, transparent);
+}
+
+.vamp-problem-item strong,
+.vamp-chain-step h3,
+.vamp-mini-flow h3 {
+	margin: 0;
+	font-size: 1.05rem;
+	line-height: 1.2;
+	color: var(--sl-color-white);
+}
+
+.vamp-problem-item span,
+.vamp-chain-step p:last-child,
+.vamp-mini-flow p:last-child {
+	color: var(--sl-color-gray-3);
+	line-height: 1.6;
+}
+
+.vamp-key-points {
+	display: grid;
+	gap: 0.75rem;
+	margin-top: 0.4rem;
+}
+
+.vamp-key-point {
+	margin: 0;
+	padding: 0.9rem 1rem;
+	border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 76%, transparent);
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--sl-color-bg-nav) 78%, transparent);
+	color: var(--sl-color-gray-2);
+	line-height: 1.5;
+}
+
+.vamp-section-head {
+	display: grid;
+	gap: 0.9rem;
+	max-width: 42rem;
+	margin-bottom: 1.5rem;
+}
+
+.vamp-section-head h2,
+.vamp-note h2 {
+	margin: 0;
+	font-size: clamp(2rem, 1.8vw + 1.4rem, 3.15rem);
+	line-height: 1.05;
+	letter-spacing: -0.03em;
+	color: var(--sl-color-white);
+}
+
+.vamp-section-head p,
+.vamp-why-copy p,
+.vamp-note p {
+	margin: 0;
+	font-size: 1.05rem;
+	line-height: 1.7;
+	color: var(--sl-color-gray-3);
+}
+
+.vamp-label {
+	margin: 0;
+	font-size: 0.78rem;
+	font-weight: 600;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--sl-color-text-accent);
+}
+
+.vamp-principles-grid,
+.vamp-reading-grid,
+.vamp-stats {
+	display: grid;
+	gap: 1rem;
+}
+
+.vamp-principles-grid {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.vamp-panel {
+	border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 82%, transparent);
+	border-radius: 1.5rem;
+	background:
+		linear-gradient(180deg,
+			color-mix(in srgb, var(--sl-color-bg-nav) 86%, transparent),
+			color-mix(in srgb, var(--sl-color-bg) 96%, transparent));
+	box-shadow: var(--sl-shadow-sm);
+}
+
+.vamp-principle {
+	display: grid;
+	gap: 0.8rem;
+	padding: 1.5rem;
+}
+
+.vamp-header-card {
+	display: grid;
+	gap: 0.9rem;
+}
+
+.vamp-index,
+.vamp-doc-label {
+	margin: 0;
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--sl-color-text-accent);
+}
+
+.vamp-principle h3,
+.vamp-header-card h3,
+.vamp-doc h3 {
+	margin: 0;
+	font-size: 1.25rem;
+	line-height: 1.2;
+	color: var(--sl-color-white);
+}
+
+.vamp-principle p:last-child,
+.vamp-doc p:last-child {
+	margin: 0;
+	color: var(--sl-color-gray-3);
+	line-height: 1.65;
+}
+
+.vamp-mail-ui {
+	display: grid;
+	gap: 0.9rem;
+	padding: 1rem;
+	border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 76%, transparent);
+	border-radius: 1.05rem;
+	background:
+		linear-gradient(180deg,
+			color-mix(in srgb, var(--sl-color-black) 42%, transparent),
+			color-mix(in srgb, var(--sl-color-bg-nav) 92%, transparent));
+	box-shadow:
+		inset 0 1px 0 color-mix(in srgb, var(--sl-color-white) 6%, transparent),
+		0 0.75rem 1.75rem color-mix(in srgb, var(--sl-color-black) 14%, transparent);
+}
+
+.vamp-mail-top {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 0.8rem;
+	align-items: start;
+}
+
+.vamp-mail-avatar {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 3.5rem;
+	height: 3.5rem;
+	border-radius: 999px;
+	border: 1px solid color-mix(in srgb, var(--sl-color-accent) 25%, var(--sl-color-hairline-light));
+	background: color-mix(in srgb, var(--sl-color-bg-nav) 88%, transparent);
+	overflow: hidden;
+}
+
+.vamp-mail-avatar-image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.vamp-mail-avatar--initial {
+	background:
+		radial-gradient(circle at top, color-mix(in srgb, white 22%, transparent), transparent 60%),
+		linear-gradient(145deg, color-mix(in srgb, var(--sl-color-accent) 76%, #101825), color-mix(in srgb, var(--sl-color-accent-high) 56%, #0a1322));
+	color: white;
+	font-size: 1.35rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.vamp-mail-identity {
+	display: grid;
+	gap: 0.2rem;
+	min-width: 0;
+}
+
+.vamp-mail-title-row {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 0.8rem;
+}
+
+.vamp-mail-title-left {
+	display: flex;
+	align-items: baseline;
+	gap: 0.6rem;
+	min-width: 0;
+	flex: 1;
+}
+
+.vamp-mail-name,
+.vamp-mail-address {
+	margin: 0;
+}
+
+.vamp-mail-time {
+	margin: 0;
+	flex-shrink: 0;
+}
+
+.vamp-mail-name,
+.vamp-mail-time,
+.vamp-mail-address,
+.vamp-mail-route,
+.vamp-mail-banner,
+.vamp-mail-note {
+	margin: 0;
+}
+
+.vamp-mail-name {
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--sl-color-white);
+}
+
+.vamp-mail-time {
+	font-size: 0.8rem;
+	color: var(--sl-color-gray-3);
+	white-space: nowrap;
+}
+
+.vamp-mail-address {
+	font-size: 0.9rem;
+	color: var(--sl-color-gray-2);
+}
+
+.vamp-mail-route {
+	font-size: 0.82rem;
+	line-height: 1.45;
+	color: var(--sl-color-gray-3);
+}
+
+.vamp-mail-banner {
+	margin: 0;
+	padding: 0.72rem 0.85rem;
+	border-radius: 0.85rem;
+	border: 1px solid transparent;
+	font-size: 0.87rem;
+	font-weight: 600;
+	line-height: 1.45;
+}
+
+.vamp-mail-banner--good {
+	color: color-mix(in srgb, var(--sl-color-accent-high) 86%, var(--sl-color-white));
+	background: color-mix(in srgb, var(--sl-color-accent) 18%, var(--sl-color-bg-nav));
+	border-color: color-mix(in srgb, var(--sl-color-accent) 30%, var(--sl-color-hairline-light));
+}
+
+.vamp-mail-banner--success {
+	color: var(--sl-color-green-high);
+	background: color-mix(in srgb, var(--sl-color-green) 16%, var(--sl-color-bg-nav));
+	border-color: color-mix(in srgb, var(--sl-color-green) 32%, var(--sl-color-hairline-light));
+}
+
+.vamp-mail-banner--notice {
+	color: var(--sl-color-orange-high);
+	background: color-mix(in srgb, var(--sl-color-orange) 14%, var(--sl-color-bg-nav));
+	border-color: color-mix(in srgb, var(--sl-color-orange) 30%, var(--sl-color-hairline-light));
+}
+
+.vamp-mail-banner--warning {
+	color: var(--sl-color-orange-high);
+	background: color-mix(in srgb, var(--sl-color-orange) 16%, var(--sl-color-bg-nav));
+	border-color: color-mix(in srgb, var(--sl-color-orange) 34%, var(--sl-color-hairline-light));
+}
+
+.vamp-mail-banner--danger {
+	color: var(--sl-color-red-high);
+	background: color-mix(in srgb, var(--sl-color-red) 14%, var(--sl-color-bg-nav));
+	border-color: color-mix(in srgb, var(--sl-color-red) 34%, var(--sl-color-hairline-light));
+}
+
+.vamp-mail-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.45rem;
+}
+
+.vamp-mail-chip {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.34rem 0.58rem;
+	border-radius: 999px;
+	border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 72%, transparent);
+	background: color-mix(in srgb, var(--sl-color-bg-nav) 80%, transparent);
+	font-size: 0.76rem;
+	font-weight: 600;
+	line-height: 1;
+	color: var(--sl-color-gray-2);
+}
+
+.vamp-mail-attestations {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.45rem;
+	margin-top: 0.1rem;
+	font-size: 0.8rem;
+	font-weight: 600;
+	line-height: 1.35;
+	color: var(--sl-color-gray-2);
+}
+
+.vamp-mail-attestation {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+}
+
+.vamp-mail-attestation--notice {
+	color: var(--sl-color-orange-high);
+}
+
+.vamp-mail-attestation--danger {
+	color: var(--sl-color-red-high);
+}
+
+.vamp-mail-attestation-icon {
+	position: relative;
+	width: 0.95rem;
+	height: 1rem;
+	flex-shrink: 0;
+	border: 1px solid color-mix(in srgb, var(--sl-color-green-high) 72%, transparent);
+	background: linear-gradient(
+		180deg,
+		color-mix(in srgb, var(--sl-color-green-high) 90%, white 8%),
+		color-mix(in srgb, var(--sl-color-green) 82%, var(--sl-color-accent-low))
+	);
+	clip-path: polygon(50% 0%, 88% 16%, 88% 54%, 50% 100%, 12% 54%, 12% 16%);
+	box-shadow: 0 0 0 1px color-mix(in srgb, var(--sl-color-green) 12%, transparent);
+}
+
+.vamp-mail-attestation-icon::after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 46%;
+	width: 0.42rem;
+	height: 0.22rem;
+	border-left: 2px solid white;
+	border-bottom: 2px solid white;
+	transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.vamp-mail-attestation-icon--warning {
+	width: 1rem;
+	height: 0.92rem;
+	border: none;
+	background: linear-gradient(
+		180deg,
+		color-mix(in srgb, var(--sl-color-orange-high) 94%, white 6%),
+		color-mix(in srgb, var(--sl-color-orange) 84%, var(--sl-color-accent-low))
+	);
+	clip-path: polygon(50% 4%, 96% 92%, 4% 92%);
+	box-shadow:
+		0 0 0 1px color-mix(in srgb, var(--sl-color-orange) 18%, transparent),
+		0 0.2rem 0.45rem color-mix(in srgb, var(--sl-color-orange) 16%, transparent);
+}
+
+.vamp-mail-attestation-icon--warning::after {
+	content: '!';
+	inset: 0;
+	display: grid;
+	place-items: center;
+	width: auto;
+	height: auto;
+	border: 0;
+	transform: none;
+	font-size: 0.68rem;
+	font-weight: 800;
+	line-height: 1;
+	color: #1b1204;
+}
+
+.vamp-mail-attestation-icon--danger {
+	border-color: color-mix(in srgb, var(--sl-color-red-high) 72%, transparent);
+	background: linear-gradient(
+		180deg,
+		color-mix(in srgb, var(--sl-color-red-high) 92%, white 8%),
+		color-mix(in srgb, var(--sl-color-red) 84%, var(--sl-color-accent-low))
+	);
+	box-shadow: 0 0 0 1px color-mix(in srgb, var(--sl-color-red) 14%, transparent);
+}
+
+.vamp-mail-attestation-icon--danger::before,
+.vamp-mail-attestation-icon--danger::after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 0.55rem;
+	height: 2px;
+	background: white;
+	border: 0;
+	transform-origin: center;
+}
+
+.vamp-mail-attestation-icon--danger::before {
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.vamp-mail-attestation-icon--danger::after {
+	transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.vamp-mail-attestation-separator {
+	color: color-mix(in srgb, var(--sl-color-gray-4) 80%, transparent);
+}
+
+.vamp-mail-note {
+	font-size: 0.9rem;
+	line-height: 1.55;
+	color: var(--sl-color-gray-3);
+}
+
+.vamp-mail-summary {
+	display: grid;
+	gap: 0.35rem;
+	padding-top: 0.15rem;
+}
+
+.vamp-mail-subject,
+.vamp-mail-preview {
+	margin: 0;
+}
+
+.vamp-mail-subject {
+	font-size: 0.92rem;
+	font-weight: 600;
+	line-height: 1.45;
+	color: var(--sl-color-white);
+}
+
+.vamp-mail-preview {
+	font-size: 0.88rem;
+	line-height: 1.55;
+	color: var(--sl-color-gray-3);
+}
+
+.vamp-why {
+	display: grid;
+	grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+	gap: 1.5rem;
+	padding: clamp(1.5rem, 2vw, 2rem);
+}
+
+.vamp-why-copy {
+	display: grid;
+	gap: 1rem;
+	align-content: start;
+}
+
+.vamp-stats {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	align-self: stretch;
+}
+
+.vamp-stat {
+	display: grid;
+	gap: 0.5rem;
+	padding: 1.2rem;
+	border-radius: 1.25rem;
+	background: color-mix(in srgb, var(--sl-color-bg-nav) 88%, transparent);
+	border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 78%, transparent);
+}
+
+.vamp-stat strong {
+	font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+	line-height: 1;
+	letter-spacing: -0.04em;
+	color: var(--sl-color-white);
+}
+
+.vamp-stat span {
+	color: var(--sl-color-gray-3);
+	line-height: 1.5;
+}
+
+.vamp-reading-grid {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.vamp-custody-grid {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.vamp-flow-code {
+	font-family: var(--__sl-font-mono);
+	font-size: 0.95rem;
+	color: var(--sl-color-gray-2);
+}
+
+.vamp-doc {
+	display: grid;
+	gap: 0.85rem;
+	padding: 1.4rem;
+	text-decoration: none;
+	transition:
+		transform 180ms ease,
+		border-color 180ms ease,
+		box-shadow 180ms ease,
+		background-color 180ms ease;
+}
+
+.vamp-doc:hover,
+.vamp-doc:focus-visible {
+	transform: translateY(-0.2rem);
+	border-color: color-mix(in srgb, var(--sl-color-accent) 35%, var(--sl-color-hairline-light));
+	box-shadow: var(--sl-shadow-md);
+}
+
+.vamp-doc:focus-visible {
+	outline: 2px solid var(--sl-color-accent);
+	outline-offset: 3px;
+}
+
+.vamp-note {
+	display: grid;
+	gap: 0.9rem;
+	padding: 1.6rem 1.75rem;
+}
+
+@media (max-width: 60rem) {
+
+	.vamp-problem,
+	.vamp-architecture,
+	.vamp-principles-grid,
+	.vamp-reading-grid,
+	.vamp-why,
+	.vamp-stats,
+	.vamp-custody-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 50rem) {
+	:root:has(.vamp-home) .hero {
+		padding: 1.5rem;
+		border-radius: 1.5rem;
+	}
+
+	:root:has(.vamp-home) .hero h1 {
+		max-width: 15ch;
+	}
+
+	:root:has(.vamp-home) .hero>img {
+		width: min(65vw, 15rem);
+	}
+
+	.vamp-home {
+		padding-bottom: 3rem;
+	}
+
+	.vamp-section-head h2,
+	.vamp-note h2,
+	.vamp-problem-copy h2,
+	.vamp-architecture-copy h2 {
+		font-size: 2rem;
+	}
+
+	.vamp-key-point {
+		border-radius: 1rem;
+	}
+}

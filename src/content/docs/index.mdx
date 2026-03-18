@@ -1,9 +1,11 @@
 ---
-title: Verified Authenticated Messaging Protocol
+title: Home
 description: "VAMP is Identity First Mail: a protocol for reducing spam through sender verification, cryptographic chain of custody, and sender-side marginal cost."
 template: splash
+tableOfContents: false
 hero:
-  tagline: VAMP is the implementation of Identity First Mail, designed to reduce spam by verifying senders, eliminating anonymous delivery through cryptographic chain of custody, and putting marginal cost on the sender.
+  title: '<span class="vamp-kicker">Verified Authenticated Messaging Protocol</span>Identity First Mail<br />'
+  tagline: Spam exists today because of weaknesses in legacy email. Email was never designed as an adversarial system, but we live in an adversarial world. <br />Sending millions of emails for spam / phishing / marketing is essentially free, and fighting it costs hundreds of millions of dollars.<br />VAMP aims to invert that equation through identity, cryptographic chain of custody, and marginal cost applied to the sender instead of the reciever, making bulk spam economically unviable.
   image:
     light: ../../assets/logo-light.svg
     dark: ../../assets/logo-dark.svg
@@ -12,58 +14,481 @@ hero:
     - text: Read the Research
       link: /research/threat-model-and-value/
       icon: right-arrow
-    - text: Sender-Cost Mechanics
-      link: /research/sender-cost-mechanics/
-      variant: minimal
+    - text: Explore the proposal
+      link: /research/native-transport-topology/
+      variant: secondary
+    - text: Get Involved
+      link: /research/signed-subscriptions/
+      variant: secondary
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import aliceImage from '../../assets/alice.png';
+import samImage from '../../assets/sam.png';
 
-## Core Principles
+<div class="not-content vamp-home">
+	<section class="vamp-show-off" aria-labelledby="vamp-show-off-heading">
+		<div class="vamp-section-head">
+			<p class="vamp-label">Do your users know who to trust?</p>
+			<h2 id="vamp-show-off-heading">Can your email do this?</h2>
+			<p>
+				VAMP turns provenance into something recipients can actually read: who sent the message,
+				how it arrived, and whether the trust state is normal, new, degraded, or dangerous.
+			</p>
+		</div>
+		<div class="vamp-principles-grid">
+			<article class="vamp-header-card">
+				<p class="vamp-doc-label">Direct Trust</p>
+				<div class="vamp-mail-ui">
+					<div class="vamp-mail-top">
+						<div class="vamp-mail-avatar">
+							<img src={aliceImage.src} alt="" class="vamp-mail-avatar-image" />
+						</div>
+						<div class="vamp-mail-identity">
+							<div class="vamp-mail-title-row">
+								<div class="vamp-mail-title-left">
+									<p class="vamp-mail-name">Alice Smith</p>
+									<p class="vamp-mail-address">alice@example.org</p>
+								</div>
+								<p class="vamp-mail-time">9:14 AM</p>
+							</div>
+							<div class="vamp-mail-attestations" aria-label="Trust attestations">
+								<span class="vamp-mail-attestation">
+									<span class="vamp-mail-attestation-icon" aria-hidden="true"></span>
+									Verified Sender
+								</span>
+								<span class="vamp-mail-attestation-separator" aria-hidden="true">|</span>
+								<span class="vamp-mail-attestation">
+									<span class="vamp-mail-attestation-icon" aria-hidden="true"></span>
+									Trusted Device
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="vamp-mail-summary">
+						<p class="vamp-mail-subject">Subject: Notes from Tuesday's sender policy review</p>
+						<p class="vamp-mail-preview">
+							I pulled the action items into one place and marked the device enrollment changes we should ship first.
+						</p>
+					</div>
+				</div>
+			</article>
+			<article class="vamp-header-card">
+				<p class="vamp-doc-label">Device Change</p>
+				<div class="vamp-mail-ui">
+					<div class="vamp-mail-top">
+						<div class="vamp-mail-avatar">
+							<img src={aliceImage.src} alt="" class="vamp-mail-avatar-image" />
+						</div>
+						<div class="vamp-mail-identity">
+							<div class="vamp-mail-title-row">
+								<div class="vamp-mail-title-left">
+									<p class="vamp-mail-name">Alice Smith</p>
+									<p class="vamp-mail-address">alice@example.org</p>
+								</div>
+								<p class="vamp-mail-time">9:18 AM</p>
+							</div>
+							<div class="vamp-mail-attestations" aria-label="Trust attestations">
+								<span class="vamp-mail-attestation">
+									<span class="vamp-mail-attestation-icon" aria-hidden="true"></span>
+									Verified Sender
+								</span>
+								<span class="vamp-mail-attestation-separator" aria-hidden="true">|</span>
+								<span class="vamp-mail-attestation vamp-mail-attestation--notice">
+									<span
+										class="vamp-mail-attestation-icon vamp-mail-attestation-icon--warning"
+										aria-hidden="true"></span>
+									New Device
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="vamp-mail-summary">
+						<p class="vamp-mail-subject">Subject: Updated rollout notes for Thursday</p>
+						<p class="vamp-mail-preview">
+							I am sending from my travel laptop this morning, but the plan and approvals are unchanged from the draft I shared yesterday.
+						</p>
+					</div>
+				</div>
+			</article>
+			<article class="vamp-header-card">
+				<p class="vamp-doc-label">Custody</p>
+				<div class="vamp-mail-ui">
+					<div class="vamp-mail-top">
+						<div class="vamp-mail-avatar">
+							<img src={aliceImage.src} alt="" class="vamp-mail-avatar-image" />
+						</div>
+						<div class="vamp-mail-identity">
+							<div class="vamp-mail-title-row">
+								<div class="vamp-mail-title-left">
+									<p class="vamp-mail-name">Alice Smith</p>
+									<p class="vamp-mail-address">alice@example.org</p>
+								</div>
+								<p class="vamp-mail-time">10:02 AM</p>
+							</div>
+							<div class="vamp-mail-attestations" aria-label="Trust attestations">
+								<span class="vamp-mail-attestation-icon" aria-hidden="true"></span>
+								<p class="vamp-mail-route">Redistributed by team-updates@example.org</p>
+							</div>
+						</div>
+					</div>
+					<div class="vamp-mail-summary">
+						<p class="vamp-mail-subject">Subject: Updated schedule for the operator briefing</p>
+						<p class="vamp-mail-preview">
+							This message was authored by Alice and redistributed through the team updates list with the custody path preserved.
+						</p>
+					</div>
+				</div>
+			</article>
+			<article class="vamp-header-card">
+				<p class="vamp-doc-label">Consent</p>
+				<div class="vamp-mail-ui">
+					<div class="vamp-mail-top">
+						<div class="vamp-mail-avatar vamp-mail-avatar--initial" aria-hidden="true">L</div>
+						<div class="vamp-mail-identity">
+							<div class="vamp-mail-title-row">
+								<div class="vamp-mail-title-left">
+									<p class="vamp-mail-name">Launch Updates</p>
+									<p class="vamp-mail-address">launch-updates@example.org</p>
+								</div>
+								<p class="vamp-mail-time">10:11 AM</p>
+							</div>
+							<div class="vamp-mail-attestations" aria-label="Trust attestations">
+								<span class="vamp-mail-attestation">
+									<span class="vamp-mail-attestation-icon" aria-hidden="true"></span>
+									Subscription Consent Verified
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="vamp-mail-summary">
+						<p class="vamp-mail-subject">Subject: The VAMP developer preview launches today</p>
+						<p class="vamp-mail-preview">
+							We opened the first wave of access this morning, published the launch notes, and included the rollout milestones for early adopters below.
+						</p>
+					</div>
+				</div>
+			</article>
+			<article class="vamp-header-card">
+				<p class="vamp-doc-label">First Contact Indicators</p>
+				<div class="vamp-mail-ui">
+					<div class="vamp-mail-top">
+						<div class="vamp-mail-avatar">
+							<img src={samImage.src} alt="" class="vamp-mail-avatar-image" />
+						</div>
+						<div class="vamp-mail-identity">
+							<div class="vamp-mail-title-row">
+								<div class="vamp-mail-title-left">
+									<p class="vamp-mail-name">Sam Patel</p>
+									<p class="vamp-mail-address">sam@example.org</p>
+								</div>
+								<p class="vamp-mail-time">10:02 AM</p>
+							</div>
+							<div class="vamp-mail-attestations" aria-label="Trust attestations">
+								<span class="vamp-mail-attestation">
+									<span class="vamp-mail-attestation-icon" aria-hidden="true"></span>
+									Verified Sender
+								</span>
+								<span class="vamp-mail-attestation-separator" aria-hidden="true">|</span>
+								<span class="vamp-mail-attestation vamp-mail-attestation--notice">
+									<span
+										class="vamp-mail-attestation-icon vamp-mail-attestation-icon--warning"
+										aria-hidden="true"></span>
+									First Contact
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="vamp-mail-summary">
+						<p class="vamp-mail-subject">Subject: Covering for Alice</p>
+						<p class="vamp-mail-preview">
+							Hi, this is Alice's coworker sam. I'm reaching out about the project so i can cover for Alice while she's out next week.
+						</p>
+					</div>
+				</div>
+			</article>
+			<article class="vamp-header-card">
+				<p class="vamp-doc-label">Phishing Attempt</p>
+				<div class="vamp-mail-ui">
+					<div class="vamp-mail-top">
+						<div class="vamp-mail-avatar">
+							<img src={aliceImage.src} alt="" class="vamp-mail-avatar-image" />
+						</div>
+						<div class="vamp-mail-identity">
+							<div class="vamp-mail-title-row">
+								<div class="vamp-mail-title-left">
+									<p class="vamp-mail-name">Alice S</p>
+									<p class="vamp-mail-address">alice@examp1e.com</p>
+								</div>
+								<p class="vamp-mail-time">10:49 AM</p>
+							</div>
+							<div class="vamp-mail-attestations" aria-label="Trust attestations">
+								<span class="vamp-mail-attestation vamp-mail-attestation--danger">
+									<span
+										class="vamp-mail-attestation-icon vamp-mail-attestation-icon--danger"
+										aria-hidden="true"></span>
+									Unverified Domain
+								</span>
+								<span class="vamp-mail-attestation-separator" aria-hidden="true">|</span>
+								<span class="vamp-mail-attestation vamp-mail-attestation--notice">
+									<span
+										class="vamp-mail-attestation-icon vamp-mail-attestation-icon--warning"
+										aria-hidden="true"></span>
+									First Contact
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="vamp-mail-summary">
+						<p class="vamp-mail-subject">Subject: Quick favor before the finance review?</p>
+						<p class="vamp-mail-preview">
+							I need you to send over a few prepaid cards before the meeting starts. Keep this between us and reply as soon as you can.
+						</p>
+					</div>
+				</div>
+			</article>
+		</div>
+	</section>
+	<section class="vamp-problem vamp-panel" aria-labelledby="vamp-problem-heading">
+		<div class="vamp-problem-copy">
+			<p class="vamp-label">Why Change Email</p>
+			<h2 id="vamp-problem-heading">Modern email is still organized around weak identity and after-the-fact defense.</h2>
+			<p>
+				The current system asks receivers to infer trust from headers, heuristics, and reputation
+				after a message is already in motion. By that point, the protocol has already handed the
+				receiver the cost and the risk.
+			</p>
+			<ul>
+				<li>Email addresses are weak identity claims, not cryptographic principals tied to a real actor.</li>
+				<li>Message handling is opaque; recipients rarely get a trustworthy chain of custody from origin to inbox.</li>
+				<li>Attackers can send unsolicited bulk mail at near-zero marginal cost.</li>
+				<li>Operators spend billions each year filtering abuse at industrial scale just to keep inboxes usable.</li>
+				<li>Users are still expected to inspect headers, wording, and context manually to spot fraud.</li>
+			</ul>
+			<p>
+				VAMP starts from a different premise: identity should be verifiable before or during delivery,
+				provenance should be explicit, and unauthorized scale should impose cost on the sender instead
+				of being dumped on the receiver.
+			</p>
+		</div>
+		<div class="vamp-problem-list" aria-label="Core problems VAMP is designed to change">
+			<article class="vamp-problem-item">
+				<strong>Weak sender identity</strong>
+				<span>Legacy email makes sender identity easy to spoof. Display names, headers, and even whole message paths can be manipulated to make malicious mail look legitimate.</span>
+			</article>
+			<article class="vamp-problem-item">
+				<strong>No chain of custody</strong>
+				<span>Recipients rarely get a trustworthy record of who originated a message, which systems handled it, what changed in transit, or whether it was redistributed by an authorized service.</span>
+			</article>
+			<article class="vamp-problem-item">
+				<strong>Abuse is cheap</strong>
+				<span>Spam, phishing, and mass solicitation are cheap to send at scale. The protocol gives attackers near-zero marginal cost while letting them externalize the damage.</span>
+			</article>
+			<article class="vamp-problem-item">
+				<strong>Filtering is expensive</strong>
+				<span>Receivers pay the bill for a broken trust model: filtering, storage, machine learning, user training, incident response, and fraud recovery all happen after the message is sent.</span>
+			</article>
+			<article class="vamp-problem-item">
+				<strong>Consent is weak and sender-controlled</strong>
+				<span>Opt-in, subscription state, and unsubscribe handling are usually maintained by the sender. Receivers can verify that a sender supports these workflows, but not that the recipient actually consented.</span>
+			</article>
+			<article class="vamp-problem-item">
+				<strong>Trust is evaluated too late</strong>
+				<span>Legacy email usually discovers security, capability, and recipient validity after the message is already in motion. By then, the receiver is left to sort out what should have been rejected earlier.</span>
+			</article>
+		</div>
+	</section>
 
-<CardGrid stagger>
-	<Card title="Verified Senders" icon="checklist">
-		VAMP binds message delivery to authenticated sender identity instead of anonymous origin claims.
-	</Card>
-	<Card title="Cryptographic Chain of Custody" icon="document">
-		Identity First Mail preserves accountable message handling across the delivery path instead of trusting loose relay metadata.
-	</Card>
-	<Card title="Sender-Side Marginal Cost" icon="graph">
-		The protocol is designed to make abusive sending economically and operationally harder at the sender edge.
-	</Card>
-</CardGrid>
+	<section class="vamp-principles" aria-labelledby="vamp-principles-heading">
+		<div class="vamp-section-head">
+			<p class="vamp-label">Identity-First Mail</p>
+			<h2 id="vamp-principles-heading">VAMP changes the default story of a message.</h2>
+			<p>
+				This is not just a better spam filter. VAMP is a different substrate for email-shaped
+				messaging: domain-authoritative identity, explicit custody, secure native transport, and
+				sender accountability built into the protocol instead of layered on top of SMTP.
+			</p>
+		</div>
+		<div class="vamp-principles-grid">
+			<article class="vamp-panel vamp-principle">
+				<p class="vamp-index">01</p>
+				<h3>Domain-authoritative identity</h3>
+				<p>
+					The namespace owner is the identity authority. Trust begins at a domain trust anchor, not
+					at a string in a `From` field.
+				</p>
+			</article>
+			<article class="vamp-panel vamp-principle">
+				<p class="vamp-index">02</p>
+				<h3>Encrypt to the user, sign with the device</h3>
+				<p>
+					Messages target the user for asynchronous, multi-device mail, while device signatures make
+					origin-specific trust visible.
+				</p>
+			</article>
+			<article class="vamp-panel vamp-principle">
+				<p class="vamp-index">03</p>
+				<h3>Make custody explicit</h3>
+				<p>
+					A message is not just payload plus signature. It is a cryptographically verifiable record
+					of who originated it and which meaningful actors handled it.
+				</p>
+			</article>
+			<article class="vamp-panel vamp-principle">
+				<p class="vamp-index">04</p>
+				<h3>Attach policy to the real edge</h3>
+				<p>
+					Native delivery runs from sender-edge to receiver-edge, giving the protocol a clean place
+					to attach identity, policy, downgrade rules, and sender-side cost.
+				</p>
+			</article>
+			<article class="vamp-panel vamp-principle">
+				<p class="vamp-index">05</p>
+				<h3>Make unauthorized scale expensive</h3>
+				<p>
+					Unauthorized bulk delivery should impose sender-side marginal cost instead of dumping the
+					burden on receivers, filters, and incident response teams.
+				</p>
+			</article>
+			<article class="vamp-panel vamp-principle">
+				<p class="vamp-index">06</p>
+				<h3>Prove consent for redistribution</h3>
+				<p>
+					Mailing lists, newsletters, and notifications should carry verifiable membership or
+					subscription proof instead of relying on sender-maintained opt-in claims.
+				</p>
+			</article>
+		</div>
+	</section>
 
-## Available Now
+	<section class="vamp-architecture vamp-panel" aria-labelledby="vamp-architecture-heading">
+		<div class="vamp-architecture-copy">
+			<p class="vamp-label">Trust Model</p>
+			<h2 id="vamp-architecture-heading">Trust flows from device to user to organization to domain.</h2>
+			<p>
+				VAMP is fundamentally domain-authoritative. Devices hold the signing keys, users remain the
+				stable messaging principals, organizations manage enrollment and revocation, and domains act
+				as the trust anchors for the namespace. Humans never touch
+				the crypto.
+			</p>
+			<div class="vamp-key-points">
+				<p class="vamp-key-point"><strong>Encryption:</strong> target the user identity, not each device.</p>
+				<p class="vamp-key-point"><strong>Signing:</strong> device-level origin remains visible and policy-relevant.</p>
+				<p class="vamp-key-point"><strong>Transport:</strong> sender-edge adds organizational attestation for external delivery.</p>
+			</div>
+		</div>
+		<div class="vamp-chain" aria-label="VAMP trust chain">
+			<article class="vamp-chain-step">
+				<p class="vamp-doc-label">Device</p>
+				<h3>Cryptographic origin</h3>
+				<p>Hardware-bound signing keys establish where user actions actually came from.</p>
+			</article>
+			<article class="vamp-chain-step">
+				<p class="vamp-doc-label">User</p>
+				<h3>Stable messaging principal</h3>
+				<p>The identity recipients reason about and the identity to which messages are encrypted.</p>
+			</article>
+			<article class="vamp-chain-step">
+				<p class="vamp-doc-label">Organization</p>
+				<h3>Administrative authority</h3>
+				<p>Enrolls devices, authorizes outbound transport, and revokes compromised state.</p>
+			</article>
+			<article class="vamp-chain-step">
+				<p class="vamp-doc-label">Domain</p>
+				<h3>Trust anchor for the namespace</h3>
+				<p>Defines which authority is actually responsible for identities under that domain.</p>
+			</article>
+		</div>
+	</section>
 
-The site currently publishes research and design analysis. Additional implementation, protocol, and operator documentation can be layered in as those sections are written.
+	<section class="vamp-custody vamp-panel" aria-labelledby="vamp-custody-heading">
+		<div class="vamp-section-head">
+			<p class="vamp-label">Chain Of Custody</p>
+			<h2 id="vamp-custody-heading">Every message already has a provenance story.</h2>
+			<p>
+				In VAMP, chain of custody is not a special mechanism reserved for mailing lists or
+				forwarding. It is the normal shape of a message. That lets recipients distinguish authorship,
+				redistribution, service-generated delivery, and explicit handling without relying on loose
+				header conventions.
+			</p>
+		</div>
+		<div class="vamp-custody-grid">
+			<article class="vamp-mini-flow">
+				<p class="vamp-doc-label">Human Message</p>
+				<h3>Direct authorship</h3>
+				<p class="vamp-flow-code">device → user → organization</p>
+			</article>
+			<article class="vamp-mini-flow">
+				<p class="vamp-doc-label">List Redistribution</p>
+				<h3>Explicit rebroadcast</h3>
+				<p class="vamp-flow-code">device → user → list service → organization</p>
+			</article>
+			<article class="vamp-mini-flow">
+				<p class="vamp-doc-label">Service Message</p>
+				<h3>Application origin</h3>
+				<p class="vamp-flow-code">service identity → organization</p>
+			</article>
+		</div>
+	</section>
 
-<CardGrid stagger>
-	<Card title="Threat Model and Value" icon="star">
-		Deployment framing and threat-model analysis for VAMP.
-		[Read the paper](/research/threat-model-and-value/).
-	</Card>
-	<Card title="Sender-Cost Mechanics" icon="setting">
-		MTA-scoped sender-cost mechanics and operational requirements.
-		[Read the paper](/research/sender-cost-mechanics/).
-	</Card>
-	<Card title="Email Volume Baseline" icon="document">
-		Human, bulk, and attacker sending-volume baselines for threshold design.
-		[Read the paper](/research/email-volume-baseline/).
-	</Card>
-	<Card title="Spam Costs and Volumes" icon="graph">
-		The 2026 operational burden of spam on email operators.
-		[Read the paper](/research/spam-costs-and-volumes/).
-	</Card>
-	<Card title="Native Transport Topology" icon="network">
-		Sender-edge to receiver-edge transport design with no third-party relay in the normal path.
-		[Read the paper](/research/native-transport-topology/).
-	</Card>
-	<Card title="Proof-of-Work Analysis" icon="gear">
-		Evaluation of proof-of-work families for VAMP sender-cost controls.
-		[Read the paper](/research/proof-of-work-analysis/).
-	</Card>
-	<Card title="Signed Subscriptions" icon="checklist">
-		WebAuthn-style consent and subscription authorization for bulk delivery.
-		[Read the paper](/research/signed-subscriptions/).
-	</Card>
-</CardGrid>
+	<section class="vamp-reading" aria-labelledby="vamp-reading-heading">
+		<div class="vamp-section-head">
+			<p class="vamp-label">Published Now</p>
+			<h2 id="vamp-reading-heading">Start with the pieces that define the model.</h2>
+			<p>
+				The current docs are research-heavy, but together they sketch the architecture: why the
+				protocol exists, how native transport works, how sender accountability is enforced, and how
+				identity-backed consent and redistribution should behave.
+			</p>
+		</div>
+		<div class="vamp-reading-grid">
+			<a class="vamp-doc vamp-panel" href="/research/threat-model-and-value/">
+				<p class="vamp-doc-label">Why The Model Exists</p>
+				<h3>Sender-Cost Enforcement, Downgrade Resistance, and Operator Value</h3>
+				<p>
+					The threat model, deployment argument, and the case for combining economics, identity, and
+					transport semantics.
+				</p>
+			</a>
+			<a class="vamp-doc vamp-panel" href="/research/native-transport-topology/">
+				<p class="vamp-doc-label">Transport</p>
+				<h3>VAMP Native Transport Topology</h3>
+				<p>
+					Why native delivery is sender-edge to receiver-edge, with no third-party transit relay in
+					the normal path.
+				</p>
+			</a>
+			<a class="vamp-doc vamp-panel" href="/research/signed-subscriptions/">
+				<p class="vamp-doc-label">Consent And Identity</p>
+				<h3>WebAuthn-Style Subscription Authorization for VAMP</h3>
+				<p>
+					How device-backed assertions can make subscription consent recipient-verifiable instead of
+					sender-asserted.
+				</p>
+			</a>
+			<a class="vamp-doc vamp-panel" href="/research/sender-cost-mechanics/">
+				<p class="vamp-doc-label">Sender Accountability</p>
+				<h3>MTA-scoped, non-monetary sender-cost mechanics for VAMP</h3>
+				<p>
+					Domain-scoped budgets, first-contact controls, identity-preserving relay rules, and
+					admin-visible governance.
+				</p>
+			</a>
+			<a class="vamp-doc vamp-panel" href="/research/email-volume-baseline/">
+				<p class="vamp-doc-label">Operational Baselines</p>
+				<h3>Email volume baselines for VAMP threshold design</h3>
+				<p>
+					Public evidence for where human sending ends, bulk sending begins, and industrial abuse
+					starts to become obvious.
+				</p>
+			</a>
+			<a class="vamp-doc vamp-panel" href="/research/proof-of-work-analysis/">
+				<p class="vamp-doc-label">Cost Primitives</p>
+				<h3>Proof-of-Work Families for VAMP</h3>
+				<p>
+					A technical survey of sender-cost options, focused on cheap verification and
+					hard-to-amortize abuse.
+				</p>
+			</a>
+		</div>
+	</section>
+</div>

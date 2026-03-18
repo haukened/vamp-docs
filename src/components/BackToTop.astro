@@ -1,0 +1,70 @@
+<button type="button" class="back-to-top" aria-label="Back to top" data-back-to-top hidden>
+	<span class="back-to-top__caret" aria-hidden="true"></span>
+</button>
+
+<script is:inline>
+	const button = document.querySelector('[data-back-to-top]');
+
+	if (button instanceof HTMLButtonElement) {
+		const toggleVisibility = () => {
+			button.hidden = window.scrollY < 320;
+		};
+
+		toggleVisibility();
+		window.addEventListener('scroll', toggleVisibility, { passive: true });
+
+		button.addEventListener('click', () => {
+			const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+		});
+	}
+</script>
+
+<style>
+	.back-to-top {
+		position: fixed;
+		right: max(1rem, env(safe-area-inset-right));
+		bottom: max(1rem, env(safe-area-inset-bottom));
+		z-index: 20;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		border: 1px solid color-mix(in srgb, var(--sl-color-hairline-light) 78%, transparent);
+		border-radius: 999px;
+		background: color-mix(in srgb, var(--sl-color-bg-nav) 88%, transparent);
+		color: var(--sl-color-white);
+		box-shadow: var(--sl-shadow-md);
+		cursor: pointer;
+		transition:
+			transform 160ms ease,
+			background-color 160ms ease,
+			border-color 160ms ease,
+			color 160ms ease;
+	}
+
+	.back-to-top__caret {
+		display: block;
+		width: 0.8rem;
+		height: 0.8rem;
+		border-top: 0.18rem solid currentColor;
+		border-left: 0.18rem solid currentColor;
+		transform: translateY(0.14rem) rotate(45deg);
+	}
+
+	.back-to-top:hover {
+		transform: translateY(-0.125rem);
+		border-color: color-mix(in srgb, var(--sl-color-accent) 35%, var(--sl-color-hairline-light));
+		background: color-mix(in srgb, var(--sl-color-accent) 18%, var(--sl-color-bg-nav));
+	}
+
+	.back-to-top:focus-visible {
+		outline: 2px solid var(--sl-color-accent);
+		outline-offset: 3px;
+	}
+
+	.back-to-top[hidden] {
+		display: none;
+	}
+</style>
